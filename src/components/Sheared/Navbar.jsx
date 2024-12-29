@@ -8,7 +8,7 @@ const Navbar = () => {
               <details>
               <summary><Link to='/shop'>Our Shop</Link> </summary>
              
-                <ul className="p-2">
+                <ul className="p-2 text-black">
                 <li><Link to='/dashboard'>DASHBOARD</Link></li>
                 <li><Link to='/menu'>Our Menu</Link></li>
                 </ul>
@@ -21,8 +21,8 @@ const Navbar = () => {
    
     </>
     return (
-       <div className="bg-base-100">
-         <div className="navbar max-w-screen-2xl">
+       <div className=" text-white ">
+         <div className="navbar max-w-screen-2xl mx-auto fixed top-0 z-10 backdrop-opacity-10 bg-opacity-30  bg-black ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,11 +41,11 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black">
              {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">BISTRO BOSS</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

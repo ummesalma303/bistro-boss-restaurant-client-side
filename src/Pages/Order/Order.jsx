@@ -15,9 +15,10 @@ const Order = () => {
     const categories = ['salad', 'pizza', 'soup', 'dessert', 'drinks'];
     const { category } = useParams();
     const initialIndex = categories.indexOf(category);
+    const [tabIndex, setTabIndex] = useState(initialIndex);
     console.log(initialIndex,categories,)
     console.log(category)
-
+console.log('line 21=====>',tabIndex)
     const [menu] = useMenu()
     const drinks = menu.filter(item=>item.category === 'drinks')
     const dessert = menu.filter(item=>item.category === 'dessert')
@@ -26,14 +27,13 @@ const Order = () => {
     const pizza = menu.filter(item=>item.category === 'pizza')
     
     // console.log(salad)
-    const [tabIndex, setTabIndex] = useState(initialIndex);
     return (
         <div className=''>
             <Cover img={orderImg} height={"h-[700px]"} title='OUR SHOP' subTitle='Would you like to try a dish?'></Cover>
           <div className="mt-10 w-11/12 mx-auto">
-          <Tabs>
+          <Tabs defaultIndex={tabIndex}  onSelect={(index) => setTabIndex(index)}>
 
-<TabList defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+<TabList >
     <Tab>Salad</Tab>
     <Tab>Pizza</Tab>
     <Tab>Soup</Tab>

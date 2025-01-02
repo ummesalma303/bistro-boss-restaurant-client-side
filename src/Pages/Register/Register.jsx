@@ -4,13 +4,16 @@ import { AuthContext } from '../../provider/AuthProvider';
 // import register from '../../assets/lottie/login.json'
 import registerImg from '../../assets/lottie/login.json'
 import Lottie from "lottie-react";
+import Swal from 'sweetalert2'
 
 import { useForm } from "react-hook-form"
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const navigate = useNavigate()
-     const {newUser,updateUser,signOut} = useContext(AuthContext);
+     const {newUser,updateUser,signOutUser} = useContext(AuthContext);
+    const location = useLocation()
+   const form = location?.state?.from?.pathName || ('/')
      const {
         register,
         formState: { errors },
@@ -25,8 +28,15 @@ const Register = () => {
                     .then(() => {
                         console.log('user profile info updated')
                         reset();
-                        alert('user successfully updated')
-                        navigate('/');
+                        Swal.fire({
+                          title: "success",
+                          text: "Successfully login user",
+                          icon: "success",
+                        });
+                        signOutUser()
+                        .then(res=>{
+                         navigate (form,{replace:true})
+                        })
 
                     })
                     .catch(error => console.log(error))

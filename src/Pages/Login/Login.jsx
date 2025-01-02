@@ -4,18 +4,17 @@ import Lottie from "lottie-react";
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../provider/AuthProvider';
 import { useForm } from "react-hook-form"
-import { Link } from 'react-router-dom';
+import { Link, replace, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const {signInUser} = useContext(AuthContext)
-    // console.log(newUser)
-    const data = useContext(AuthContext)
-    console.log(data)
-    const captchaRef = useRef()
     const [disabled,setDisabled] = useState(true);
-    // const handleLogin=e=>{
-    //     e.preventDefault()
-    // }
+    const captchaRef = useRef()
+    const navigate = useNavigate()
+    const location = useLocation()
+   const form = location?.state?.from?.pathName || ('/')
+   console.log(location)
 
     const {
         register,
@@ -28,9 +27,17 @@ const onSubmit = (data) => {
     // console.log(data.password)
     signInUser(data.email,data.pass)
     .then((res) => {
-        console.log(res)
+      Swal.fire({
+        text: "Successfully sign in",
+        icon: "success",
+      });
+      navigate (form,{replace:true})
       }).catch((error) => {
         console.log(error)
+        Swal.fire({
+          text: `${error.message}`,
+          icon: "success",
+        });
       });
 
 }
@@ -41,12 +48,22 @@ const onSubmit = (data) => {
     const handleValidateCaptcha = e =>{
         // e.preventDefault()
         const user_captcha_value = captchaRef.current.value
-        console.log(user_captcha_value)
+        // console.log(user_captcha_value)
         if (validateCaptcha(user_captcha_value)) {
-            alert('Captcha Matched');
+            // alert('Captcha Matched');
+            Swal.fire({
+              text: "Captcha Matched",
+              icon: "success",
+              timer: 1200
+            });
             setDisabled(false)
         }else{
-            console.log('Not matched 😢😭')
+            // console.log('')
+            Swal.fire({
+              text: "Not matched 😢😭",
+              icon: "error",
+              timer: 1200
+            });
             setDisabled(true)
         }
     }

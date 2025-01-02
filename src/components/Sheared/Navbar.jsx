@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 import { Link, NavLink} from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { CiShoppingCart } from "react-icons/ci";
+import useCart from '../../Hooks/useCart';
 
 const Navbar = () => {
+  const [cart] = useCart()
+  // console.log(cart.length)
+  
   const {user,signOutUser} =useContext(AuthContext);
-  console.log(user?.email)
+  // console.log(user?.email)
   
     const navOptions= <>
      <li><Link to='/'>HOME</Link></li>
@@ -15,12 +20,15 @@ const Navbar = () => {
              
                 <ul className="p-2 text-black">
                 <li><Link to='/dashboard'>DASHBOARD</Link></li>
-                <li><Link to='/order'>Order</Link></li>
+                <li><Link to='/order/salad'>Order</Link></li>
                 </ul>
                 </details>
               </li>
               <li><Link to='/contact'>CONTACT us</Link></li>
-   
+             <Link to='/cart'>  <button className="btn"> <CiShoppingCart />
+  <div className="badge badge-secondary">{cart.length}</div>
+</button> </Link>
+             
    
     
    

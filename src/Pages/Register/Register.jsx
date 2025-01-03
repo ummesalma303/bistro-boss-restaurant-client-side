@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 
 import { useForm } from "react-hook-form"
 import { useLocation, useNavigate } from 'react-router-dom';
+import { imageUpload } from '../../api/utils';
 
 const Register = () => {
     const navigate = useNavigate()
@@ -20,11 +21,16 @@ const Register = () => {
         reset,
         handleSubmit,
       } = useForm()
-      const onSubmit = (data) => {
-        console.log(data)
+      const onSubmit = async (data) => {
+        const imageData = data.photo[0]
+
+        const imageURL = await imageUpload(imageData)
+        // const formData = new FormData()
+        // formData.append("image",image)
+        // console.log(imageURL)
         newUser(data.email,data.password)
         .then(res=>{
-            updateUser(data.name, data.photoURL)
+            updateUser(data.name, imageURL)
                     .then(() => {
                         console.log('user profile info updated')
                         reset();
@@ -33,10 +39,10 @@ const Register = () => {
                           text: "Successfully login user",
                           icon: "success",
                         });
-                        signOutUser()
-                        .then(res=>{
                          navigate (form,{replace:true})
-                        })
+                        // signOutUser()
+                        // .then(res=>{
+                        // })
 
                     })
                     .catch(error => console.log(error))
@@ -65,7 +71,9 @@ const Register = () => {
           <label className="label">
             <span className="label-text">Photo</span>
           </label>
-          <input type="url" name='photo' placeholder="pppphoto🐟"  {...register("photo", { required: true })} className="input input-bordered" required />
+          <input type="file" name="photo" id="" accept='image/*' {...register("photo", { required: true })} />
+          {errors.photo&& <p className='text-red-500' role="alert">photo is required</p>}
+          {/* <input type="url" name='photo' placeholder="pppphoto🐟"  {...register("photo", { required: true })} className="input input-bordered" required /> */}
         </div>
         {/* email */}
         <div className="form-control">

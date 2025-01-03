@@ -11,7 +11,7 @@ import useCart from "../../Hooks/useCart";
 
 const FoodCard = ({ menu }) => {
   const [ _,refetch] =useCart();
-  console.log( refetch)
+  // console.log( refetch)
 
   
   const axiosSecure = useAxiosSecure();

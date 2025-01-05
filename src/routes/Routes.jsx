@@ -11,6 +11,7 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Cart from "../Pages/Cart/Cart";
 import DashBoard from "../layouts/DashBoard";
+import AllUsers from "../Pages/AllUsers.jsx/AllUsers";
 // import Home from "../Pages/Home";
 
   
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         {
           path:'/dashboard/manageBookings',
           element:<Cart></Cart>
+        },
+        {
+          path:'allUsers',
+          element:<AllUsers></AllUsers>
         }
       ]
   }

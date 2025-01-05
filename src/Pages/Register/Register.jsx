@@ -9,8 +9,11 @@ import Swal from 'sweetalert2'
 import { useForm } from "react-hook-form"
 import { useLocation, useNavigate } from 'react-router-dom';
 import { imageUpload } from '../../api/utils';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
      const {newUser,updateUser,signOutUser} = useContext(AuthContext);
     const location = useLocation()
@@ -39,10 +42,18 @@ const Register = () => {
                           text: "Successfully login user",
                           icon: "success",
                         });
-                         navigate (form,{replace:true})
                         // signOutUser()
                         // .then(res=>{
                         // })
+                        const userInfo={
+                          name: data.name,
+                          email: data.email
+                        }
+                        axiosPublic.post(`/users`,userInfo)
+                        .then(res=>console.log(res.data))
+                        .catch(err=>console.log(err))
+
+                        navigate (form,{replace:true})
 
                     })
                     .catch(error => console.log(error))
@@ -103,6 +114,8 @@ const Register = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Sign Up</button>
         </div>
+      <div className='divider'></div>
+      <SocialLogin></SocialLogin>
       </form>
     </div>
 

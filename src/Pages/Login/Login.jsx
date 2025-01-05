@@ -6,6 +6,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { useForm } from "react-hook-form"
 import { Link, replace, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Login = () => {
     const {signInUser} = useContext(AuthContext)
@@ -102,6 +103,8 @@ const onSubmit = (data) => {
             {/* <button disabled={disabled} className="btn btn-primary">Login</button> */}
             <input type="submit" disabled={disabled} className="btn btn-primary" value="login"></input>
           </div>
+          <div className="divider"></div>
+          <SocialLogin></SocialLogin>
         </form>
       </div>
     </div>

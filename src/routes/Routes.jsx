@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       element:<DashBoard/>,
       children:[
         {
-          path:'/dashboard/cart',
+          path:'/dashboard/manageBookings',
           element:<Cart></Cart>
         }
       ]

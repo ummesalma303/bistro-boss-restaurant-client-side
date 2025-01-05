@@ -78,7 +78,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
          {
-          user?<><img className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" /><button className='btn' onClick={signOutUser}>Sign Out</button></>:<><NavLink to='/register'> <button className="btn">Sign Up</button></NavLink>
+          user?<><img referrerPolicy='no-referrer' className='w-14 h-14 rounded-full' src={user?.photoURL} alt="" /><button className='btn' onClick={signOutUser}>Sign Out</button></>:<><NavLink to='/register'> <button className="btn">Sign Up</button></NavLink>
          <NavLink className='btn' to='/login'> <button className="btn">Sign In</button></NavLink></>
          }
         </div>

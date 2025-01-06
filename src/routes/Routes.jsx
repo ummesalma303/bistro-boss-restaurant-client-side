@@ -12,6 +12,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Cart from "../Pages/Cart/Cart";
 import DashBoard from "../layouts/DashBoard";
 import AllUsers from "../Pages/AllUsers.jsx/AllUsers";
+import AdminHome from "../Pages/AdminHome/AdminHome";
 // import Home from "../Pages/Home";
 
   
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       path:'/dashboard',
       element:<DashBoard/>,
       children:[
+        {
+          // path:'/dashboard/manageBookings',
+          index:true,
+          element:<AdminHome></AdminHome>
+        },
         {
           path:'/dashboard/manageBookings',
           element:<Cart></Cart>

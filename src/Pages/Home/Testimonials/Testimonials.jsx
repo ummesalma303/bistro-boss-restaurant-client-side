@@ -30,7 +30,7 @@ const Testimonials = () => {
         },[])
         // console.log(reviews)
     return (
-        <div>
+        <div className='mb-14'>
             <SectionTitle heading={'TESTIMONIALS'} subHeading={'What Our Clients Say'}></SectionTitle>
 
             <div className="">

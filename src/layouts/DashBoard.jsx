@@ -13,7 +13,7 @@ const DashBoard = () => {
             <div className=" h-screen bg-orange-400 text-white p-6">
           {
             isAdmin? <ul className='space-y-4'>
-            <li> <NavLink to='/dashboard/adminHome' className='flex space-x-2'><FaHome size={20}/>Admin Home</NavLink></li>
+            <li> <NavLink to='/dashboard' className='flex space-x-2'><FaHome size={20}/>Admin Home</NavLink></li>
             <li> <NavLink to='/dashboard/addItems' className='flex space-x-2'><FaCalendarAlt size={20}/>add items</NavLink></li>
             <li> <NavLink to='/dashboard/manageItems' className='flex space-x-2'><MdPayments size={20}/>manage items</NavLink></li>
             <li> <NavLink to='/dashboard/manageBookings' className='flex space-x-2'><FaOpencart size={20} />Manage bookings

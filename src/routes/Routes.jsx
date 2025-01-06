@@ -13,6 +13,7 @@ import Cart from "../Pages/Cart/Cart";
 import DashBoard from "../layouts/DashBoard";
 import AllUsers from "../Pages/AllUsers.jsx/AllUsers";
 import AdminHome from "../Pages/AdminHome/AdminHome";
+import AdminRoutes from "../Pages/AdminRoute/AdminRoutes";
 // import Home from "../Pages/Home";
 
   
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
         },
         {
           path:'allUsers',
-          element:<AllUsers></AllUsers>
+          element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>
         }
       ]
   }

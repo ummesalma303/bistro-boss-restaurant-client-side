@@ -5,14 +5,20 @@ import { FaSquareVirus } from "react-icons/fa6";
 import { MdPayments } from "react-icons/md";
 
 import { NavLink, Outlet } from 'react-router-dom';
+import useAdmin from '../Hooks/useAdmin';
 
 const DashBoard = () => {
-    const isAdmin = true;
-    return (
+  const [isAdmin,isPending] = useAdmin();
+  console.log(isAdmin?.admin  )
+  if (isPending) {
+    return <h2>loading.......</h2>
+  }
+  
+  return (
         <div className=' flex'>
             <div className=" h-screen bg-orange-400 text-white p-6">
           {
-            isAdmin? <ul className='space-y-4'>
+            isAdmin?.admin? <ul className='space-y-4'>
             <li> <NavLink to='/dashboard' className='flex space-x-2'><FaHome size={20}/>Admin Home</NavLink></li>
             <li> <NavLink to='/dashboard/addItems' className='flex space-x-2'><FaCalendarAlt size={20}/>add items</NavLink></li>
             <li> <NavLink to='/dashboard/manageItems' className='flex space-x-2'><MdPayments size={20}/>manage items</NavLink></li>

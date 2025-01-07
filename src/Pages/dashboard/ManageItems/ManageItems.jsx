@@ -47,9 +47,7 @@ const ManageItems = () => {
           });
     }
 
-    const handleUpdate = (item) =>{
-        console.log(item)
-    }
+   
     return (
         <div>
            <SectionTitle heading={'MANAGE ALL ITEMS'} subHeading={'Hurry Up!'}></SectionTitle>
@@ -97,7 +95,7 @@ const ManageItems = () => {
              
             </td>
             <td>{item.price}</td>
-            <td className=''><Link to={`/dashboard/updateItem/${item._id}`}><button className='btn text-orange-400' onClick={()=>handleUpdate(item)}><FaEdit /></button></Link>
+            <td className=''><Link to={`/dashboard/updateItem/${item._id}`}><button className='btn text-orange-400' ><FaEdit /></button></Link>
                         </td>
             <td><button className='btn text-red-500' onClick={()=>handleDelete(item)}><MdDeleteForever /></button>
                         </td>

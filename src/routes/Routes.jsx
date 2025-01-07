@@ -11,9 +11,15 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Cart from "../Pages/Cart/Cart";
 import DashBoard from "../layouts/DashBoard";
-import AllUsers from "../Pages/AllUsers.jsx/AllUsers";
-import AdminHome from "../Pages/AdminHome/AdminHome";
-import AdminRoutes from "../Pages/AdminRoute/AdminRoutes";
+// import AllUsers from "../Pages/AllUsers.jsx/AllUsers";
+// import AdminHome from "../Pages/AdminHome/AdminHome";
+// import AdminRoutes from "../Pages/AdminRoute/AdminRoutes";
+import AddItems from "../Pages/dashboard/AddItems/AddItems";
+import AllUsers from "../Pages/dashboard/AllUsers.jsx/AllUsers";
+import AdminHome from "../Pages/dashboard/AdminHome/AdminHome";
+import AdminRoutes from "../Pages/dashboard/AdminRoute/AdminRoutes";
+import ManageItems from "../Pages/dashboard/ManageItems/ManageItems";
+import UpdateItem from "../Pages/dashboard/UpdateItem/UpdateItem";
 // import Home from "../Pages/Home";
 
   
@@ -66,8 +72,21 @@ const router = createBrowserRouter([
           element:<Cart></Cart>
         },
         {
+          path:'addItems',
+          element:<AdminRoutes><AddItems></AddItems></AdminRoutes>
+        },
+        {
+          path:'manageItems',
+          element:<AdminRoutes><ManageItems></ManageItems></AdminRoutes>
+        },
+        {
           path:'allUsers',
           element:<AdminRoutes><AllUsers></AllUsers></AdminRoutes>
+        },
+        {
+          path:'updateItem/:id',
+          loader: ({params}) => fetch(`http://localhost:5000/updateItems/${params.id}}`),
+          element:<AdminRoutes><UpdateItem></UpdateItem></AdminRoutes>
         }
       ]
   }

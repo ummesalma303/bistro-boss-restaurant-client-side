@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../provider/AuthProvider';
+import { AuthContext } from '../../../provider/AuthProvider';
 import { useLocation } from 'react-router-dom';
 
 const AdminRoutes = ({children}) => {

@@ -16,7 +16,7 @@ const DashBoard = () => {
   
   return (
         <div className=' flex'>
-            <div className=" h-screen bg-orange-400 text-white p-6">
+            <div className=" min-h-screen bg-orange-400 text-white p-6">
           {
             isAdmin?.admin? <ul className='space-y-4'>
             <li> <NavLink to='/dashboard' className='flex space-x-2'><FaHome size={20}/>Admin Home</NavLink></li>

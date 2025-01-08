@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { FaTrashAlt, FaUsers } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Select } from '@headlessui/react'
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure();
@@ -80,7 +81,8 @@ const AllUsers = () => {
         <th></th>
         <th>Name</th>
         <th>Email</th>
-        <th>Roll</th>
+        <th>Role</th>
+        <th>Role</th>
       </tr>
     </thead>
     <tbody>
@@ -96,6 +98,12 @@ const AllUsers = () => {
                     <td> {
                       user.role?<h2>Admin</h2>:<button onClick={()=>handleMakeAdmin(user)}><FaUsers className="text-white bg-orange-500 text-2xl"/></button>
                       }</td>
+                      <td> <Select name="status" aria-label="Project status">
+      <option value="active">Admin</option>
+      <option value="paused">Seller</option>
+      <option value="delayed">Customer</option>
+      {/* <option value="canceled">Canceled</option> */}
+    </Select></td>
                     <td><button onClick={()=>handleDelete(user)}><FaTrashAlt className="text-red-600"/></button></td>
                   </tr>)
             }

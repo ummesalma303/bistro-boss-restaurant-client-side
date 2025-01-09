@@ -20,6 +20,7 @@ import AdminHome from "../Pages/dashboard/AdminHome/AdminHome";
 import AdminRoutes from "../Pages/dashboard/AdminRoute/AdminRoutes";
 import ManageItems from "../Pages/dashboard/ManageItems/ManageItems";
 import UpdateItem from "../Pages/dashboard/UpdateItem/UpdateItem";
+import Payment from "../Pages/dashboard/Payment/Payment";
 // import Home from "../Pages/Home";
 
   
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
         {
           path:'/dashboard/manageBookings',
           element:<Cart></Cart>
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
         },
         {
           path:'addItems',

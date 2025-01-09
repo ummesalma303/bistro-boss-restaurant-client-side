@@ -21,7 +21,7 @@ const DashBoard = () => {
     setIsOpen(false)
   }
 
-  console.log(isAdmin?.admin  )
+  // console.log(isAdmin?.admin  )
   if (isPending) {
     return <h2>loading.......</h2>
   }

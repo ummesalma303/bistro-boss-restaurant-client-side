@@ -3,6 +3,7 @@ import useCart from '../../Hooks/useCart';
 import { MdDeleteForever } from 'react-icons/md';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const axiosSecure = useAxiosSecure() 
@@ -43,11 +44,13 @@ const Cart = () => {
         .catch(err=>console.log(err))
     }
     return (
-        <div className="card w-11/12 mx-auto">
+        <div className="card w-11/12 mx-auto my-4">
             <div className=' flex justify-between items-center'>
             <h2>Total orders: {cart.length}</h2>
             <h2>total price: ${totalPrice}</h2>
-            <button className='btn '>Pay</button>
+            {
+              cart.length?<Link to='/dashboard/payment'><button className='btn btn-accent '>Pay</button></Link>:<button className='btn btn-accent' disabled >Pay</button>
+            }
         </div>
         <div className="overflow-x-auto">
   <table className="table">
@@ -65,7 +68,7 @@ const Cart = () => {
      
       {/* row 2 */}
      {
-        cart.map((item,i)=> <tr className="hover" key={item._id}>
+        cart?.map((item,i)=> <tr className="hover" key={item._id}>
             <th>{i+1}</th>
             <td><img className='w-14 h-12' src={item?.image} alt="" /></td>
             <td>{item?.name}</td>

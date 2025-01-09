@@ -72,7 +72,7 @@ const ManageItems = () => {
     <tbody>
       
       {
-        menu.map((item,idx)=>(
+        menu?.map((item,idx)=>(
             <tr key={idx}>
                 <td>{idx+1}</td>
             <td>
@@ -80,22 +80,22 @@ const ManageItems = () => {
                 <div className="avatar">
                   <div className="mask mask-squircle h-12 w-12">
                     <img
-                      src={item.image}
+                      src={item?.image}
                       alt="Avatar Tailwind CSS Component" />
                   </div>
                 </div>
                 <div>
-                  <div className="font-bold">{item.name}</div>
-                  <div className="text-sm opacity-50">{item.category}</div>
+                  <div className="font-bold">{item?.name}</div>
+                  <div className="text-sm opacity-50">{item?.category}</div>
                 </div>
               </div>
             </td>
             <td>
-            {item.category}
+            {item?.category}
              
             </td>
-            <td>{item.price}</td>
-            <td className=''><Link to={`/dashboard/updateItem/${item._id}`}><button className='btn text-orange-400' ><FaEdit /></button></Link>
+            <td>{item?.price}</td>
+            <td className=''><Link to={`/dashboard/updateItem/${item?._id}`}><button className='btn text-orange-400' ><FaEdit /></button></Link>
                         </td>
             <td><button className='btn text-red-500' onClick={()=>handleDelete(item)}><MdDeleteForever /></button>
                         </td>

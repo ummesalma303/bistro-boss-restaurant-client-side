@@ -7,7 +7,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const useAdmin = () => {
    const {user} =useContext(AuthContext);
-    console.log(user?.email)
+    // console.log(user?.email)
     const axiosSecure = useAxiosSecure()
     const {data:isAdmin,isPending} = useQuery({
         queryKey:['isAdmin',user?.email],

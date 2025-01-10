@@ -45,6 +45,7 @@ const DashBoard = () => {
             <li><NavLink to='/menu' className='flex space-x-2'><FaList size={20} />Menu</NavLink></li>
             <li><NavLink to='/order/salad' className='flex space-x-2'>Order</NavLink></li>
             <li><NavLink to='/contact' className='flex space-x-2'>CONTACT us</NavLink></li>
+            <li><NavLink to='/dashboard/paymentHistory' className='flex space-x-2'>Payment History</NavLink></li>
             <li><Button
         onClick={open}
         className="rounded-md bg-black/20 py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-white">Open dialog</Button>
@@ -56,6 +57,7 @@ const DashBoard = () => {
            <li><NavLink to='/menu' className='flex space-x-2'><FaList size={20} />Menu</NavLink></li>
            <li><NavLink to='/order/salad' className='flex space-x-2'>Order</NavLink></li>
            <li><NavLink to='/contact' className='flex space-x-2'>CONTACT us</NavLink></li>
+           <li><NavLink to='/dashboard/paymentHistory' className='flex space-x-2'>Payment History</NavLink></li>
            <li><Button
         onClick={open}
         className="rounded-md bg-black/20 py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-white">Open dialog</Button>

@@ -1,12 +1,15 @@
 import { CardElement, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import useCart from '../../../Hooks/useCart';
-import axios from 'axios';
+// import axios from 'axios';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useContext } from 'react';
 import { AuthContext } from '../../../provider/AuthProvider';
+import Swal from "sweetalert2";
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const CheckoutForm = () => {
+const CheckoutForm = () => { 
+    const navigate = useNavigate()
     const [cart] = useCart()
     const {user} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
@@ -80,14 +83,28 @@ const CheckoutForm = () => {
              email: user?.email,
              name: user?.displayName,
              date: new Date(),
-             id: paymentIntent.id,
+             transactionId: paymentIntent.id,
              menuId: cart.map(item => item.menuId),
              cartIds: cart.map(item => item._id),
              price:totalPrice,
              status:'pending'
             }
             axiosSecure.post('/payment',payment)
-            .then(res => console.log(res.data))
+            .then(res =>{
+                //  console.log(res.data)
+                if (res.data.paymentResult.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Thank you for payment",
+                        showConfirmButton: false,
+                        timer: 1500
+                })
+                navigate('/dashboard/paymentHistory')
+                }
+
+
+                })
             .catch(err=>console.log(err))
             }
 

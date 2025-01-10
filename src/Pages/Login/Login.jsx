@@ -32,7 +32,8 @@ const onSubmit = (data) => {
         text: "Successfully sign in",
         icon: "success",
       });
-      navigate (form,{replace:true})
+      // navigate (form,{replace:true})
+      navigate('/')
       }).catch((error) => {
         console.log(error)
         Swal.fire({

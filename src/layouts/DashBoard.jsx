@@ -28,18 +28,18 @@ const DashBoard = () => {
   
   return (
         <div className=' flex'>
-            <div className=" min-h-screen bg-orange-400 text-white p-6">
+            <div className=" min-h-screen bg-[#D1A054] text-white p-6">
           {
             isAdmin?.admin? <ul className='space-y-4'>
             <li> <NavLink to='/dashboard' className='flex space-x-2'><FaHome size={20}/>Admin Home</NavLink></li>
             <li> <NavLink to='/dashboard/addItems' className='flex space-x-2'><FaCalendarAlt size={20}/>add items</NavLink></li>
             <li> <NavLink to='/dashboard/manageItems' className='flex space-x-2'><MdPayments size={20}/>manage items</NavLink></li>
-            <li> <NavLink to='/dashboard/manageBookings' className='flex space-x-2'><FaOpencart size={20} />Manage bookings
+            <li> <NavLink to='/dashboard/manageBookings' className='flex space-x-2'><FaOpencart size={20} />My bookings
             </NavLink></li>
             <li> <NavLink to='/dashboard/allUsers' className='flex space-x-2'><FaSquareVirus size={20} />all users
             </NavLink></li>
-            <li> <NavLink to='/dashboard/bookings' className='flex space-x-2'><FaList size={20} />My Bookings
-            </NavLink></li>
+            {/* <li> <NavLink to='/dashboard/bookings' className='flex space-x-2'><FaList size={20} />My Bookings
+            </NavLink></li> */}
             <div className="divider"></div>
             <li> <NavLink to='/' className='flex space-x-2'><FaHome size={20}/>Home</NavLink></li>
             <li><NavLink to='/menu' className='flex space-x-2'><FaList size={20} />Menu</NavLink></li>

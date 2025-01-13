@@ -11,7 +11,7 @@ import { useState } from 'react'
 import AdminModal from '../components/Modal/AdminModal';
 const DashBoard = () => {
   const [isAdmin,isPending] = useAdmin();
-  console.log(isAdmin)
+  // console.log(isAdmin)
   let [isOpen, setIsOpen] = useState(false)
 
   function open() {
@@ -26,12 +26,12 @@ const DashBoard = () => {
   if (isPending) {
     return <h2>loading.......</h2>
   }
-  let admin=true
+  
   return (
         <div className=' flex'>
             <div className=" min-h-screen bg-[#D1A054] text-white p-6">
           {
-           admin? <ul className='space-y-4'>
+            isAdmin?.admin? <ul className='space-y-4'>
             <li> <NavLink to='/dashboard' className='flex space-x-2'><FaHome size={20}/>Admin Home</NavLink></li>
             <li> <NavLink to='/dashboard/addItems' className='flex space-x-2'><FaCalendarAlt size={20}/>add items</NavLink></li>
             <li> <NavLink to='/dashboard/manageItems' className='flex space-x-2'><MdPayments size={20}/>manage items</NavLink></li>

@@ -26,7 +26,7 @@ const UpdateItem = () => {
           // .then(res=>console.log(res)
           // )
           // .catch(err=>console.log(err))
-          console.log(res    )
+          // console.log(res    )
       
           /* ----------------------------- save menu data on db ---------------------------- */
         //   if (res.data.success) {
@@ -40,7 +40,7 @@ const UpdateItem = () => {
               // console.log(menuItem)
        await axiosSecure.patch(`/menu/${_id}`,menuItem)
               .then(res=>{
-                  console.log(res.data)
+                  // console.log(res.data)
               if (res.data.insertedId) {
                   Swal.fire({
                       position: "top-end",

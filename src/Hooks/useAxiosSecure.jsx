@@ -31,10 +31,10 @@ axiosSecure.interceptors.response.use(function (response) {
 }, function (error) {
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   // Do something with response error
-  console.log(error?.response?.status)
+  // console.log(error?.response?.status)
   if (error.response?.status ===401 || error.response?.status === 403) {
-    //  signOutUser()
-    // navigate('/login')
+     signOutUser()
+    navigate('/login')
   }
   return Promise.reject(error);
 });

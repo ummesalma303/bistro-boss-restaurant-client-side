@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const axiosPublic = useAxiosPublic()
@@ -10,17 +11,24 @@ const SocialLogin = () => {
         googleLogin()
         .then(res => {
             
-            console.log(res.user.displayName)
+            // console.log(res.user.displayName)
             const userInfo={
                 name: res.user.displayName,
                 email: res.user.email
               }
-              console.log(userInfo)
+            //   console.log(userInfo)
               axiosPublic.post(`/users`,userInfo)
-              .then(res=>console.log(res.data))
-              .catch(err=>console.log(err))
+              .then(res=>{
+                
+                // console.log(res.data)
+            })
+              .catch(err=>{
+                // console.log(err)
+            })
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            // console.log(err)
+        })
     }
     return (
         <div>

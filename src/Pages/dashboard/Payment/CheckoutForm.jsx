@@ -13,7 +13,7 @@ const CheckoutForm = () => {
     const [cart] = useCart()
     const {user} = useContext(AuthContext)
     const axiosSecure = useAxiosSecure()
-    console.log(cart)
+    // console.log(cart)
     
     // state
     const [error,setError] = useState('')
@@ -53,17 +53,17 @@ const CheckoutForm = () => {
             card
         })
         if (error) {
-           console.log('[error]',error.message)
+        //    console.log('[error]',error.message)
            setError(error.message)
         }else{
-            console.log('[PaymentMethod]', paymentMethod.id);
+            // console.log('[PaymentMethod]', paymentMethod.id);
             // setSuccess(paymentMethod.id)
             setError('')
         }
 
 
         // const confirm payment 
-        console.log(clientSecret)
+        // console.log(clientSecret)
         const { paymentIntent, error: confirmError} = await stripe.confirmCardPayment(clientSecret,{
             payment_method:{
                 card:card,
@@ -74,7 +74,7 @@ const CheckoutForm = () => {
             }
         })
         if (confirmError) {
-            console.log('confirm error',confirmError)
+            // console.log('confirm error',confirmError)
         }else{
             console.log('paymentIntent====>',paymentIntent.status);
             if (paymentIntent?.status === 'succeeded') {
@@ -105,7 +105,9 @@ const CheckoutForm = () => {
 
 
                 })
-            .catch(err=>console.log(err))
+            .catch(err=>{
+                // console.log(err)
+            })
             }
 
 

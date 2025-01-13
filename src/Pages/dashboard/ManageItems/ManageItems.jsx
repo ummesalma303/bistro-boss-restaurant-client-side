@@ -17,7 +17,7 @@ const ManageItems = () => {
     }
 
     const handleDelete = (item) =>{
-        console.log(item)
+        // console.log(item)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -41,8 +41,11 @@ const ManageItems = () => {
                         icon: "success"
                       });
                 }
-                console.log(res.data)})
-            .catch(err=>console.log(err))
+                // console.log(res.data)
+              })
+            .catch(err=>{
+              // console.log(err)
+            })
             }
           });
     }

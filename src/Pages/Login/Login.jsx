@@ -15,7 +15,7 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
    const form = location?.state?.from?.pathName || ('/')
-   console.log(location)
+  //  console.log(location)
 
     const {
         register,
@@ -35,7 +35,7 @@ const onSubmit = (data) => {
       // navigate (form,{replace:true})
       navigate('/')
       }).catch((error) => {
-        console.log(error)
+        // console.log(error)
         Swal.fire({
           text: `${error.message}`,
           icon: "success",

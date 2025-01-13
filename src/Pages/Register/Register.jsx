@@ -35,7 +35,7 @@ const Register = () => {
         .then(res=>{
             updateUser(data.name, imageURL)
                     .then(() => {
-                        console.log('user profile info updated')
+                        // console.log('user profile info updated')
                         reset();
                         Swal.fire({
                           title: "success",
@@ -50,15 +50,23 @@ const Register = () => {
                           email: data.email
                         }
                         axiosPublic.post(`/users`,userInfo)
-                        .then(res=>console.log(res.data))
-                        .catch(err=>console.log(err))
+                        .then(res=>{
+                          // console.log(res.data)
+                        })
+                        .catch(err=>{
+                          // console.log(err)
+                        })
 
                         navigate (form,{replace:true})
 
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => {
+                      // console.log(error)
+                    })
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+          // console.log(err)
+        })
     }
     
     return (

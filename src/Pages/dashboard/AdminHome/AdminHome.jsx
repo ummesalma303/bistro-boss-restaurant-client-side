@@ -13,7 +13,7 @@ const AdminHome = () => {
     const axiosSecure = useAxiosSecure()
     const {user} = useContext(AuthContext);
     const {data = {}} = useQuery({
-        queryKey:['order-stats'],
+        queryKey:['admin-stats'],
         queryFn:async () => {
             const res = await axiosSecure.get('/admin-stats')
             console.log(res)
@@ -21,7 +21,9 @@ const AdminHome = () => {
         }
     })
     // console.log(data.user)
-    const {user:customer,product,order,revenue} = data || {}
+    const {user:customer,product,order,revenue} = data
+    // data?.map(item =>{ item})
+    // console.log(data)
     return (
         <div className='p-5'>
             <h2 className='text-3xl'><span>Hi, Welcome </span>{user?.displayName? user?.displayName:'Back'}!</h2>

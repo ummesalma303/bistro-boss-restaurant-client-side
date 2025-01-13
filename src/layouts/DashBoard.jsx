@@ -11,6 +11,7 @@ import { useState } from 'react'
 import AdminModal from '../components/Modal/AdminModal';
 const DashBoard = () => {
   const [isAdmin,isPending] = useAdmin();
+  console.log(isAdmin)
   let [isOpen, setIsOpen] = useState(false)
 
   function open() {
@@ -25,12 +26,12 @@ const DashBoard = () => {
   if (isPending) {
     return <h2>loading.......</h2>
   }
-  
+  let admin=true
   return (
         <div className=' flex'>
             <div className=" min-h-screen bg-[#D1A054] text-white p-6">
           {
-            isAdmin?.admin? <ul className='space-y-4'>
+           admin? <ul className='space-y-4'>
             <li> <NavLink to='/dashboard' className='flex space-x-2'><FaHome size={20}/>Admin Home</NavLink></li>
             <li> <NavLink to='/dashboard/addItems' className='flex space-x-2'><FaCalendarAlt size={20}/>add items</NavLink></li>
             <li> <NavLink to='/dashboard/manageItems' className='flex space-x-2'><MdPayments size={20}/>manage items</NavLink></li>
@@ -56,6 +57,8 @@ const DashBoard = () => {
            <li> <NavLink to='/' className='flex space-x-2'><FaHome size={20}/>Home</NavLink></li>
            <li><NavLink to='/menu' className='flex space-x-2'><FaList size={20} />Menu</NavLink></li>
            <li><NavLink to='/order/salad' className='flex space-x-2'>Order</NavLink></li>
+           <li> <NavLink to='/dashboard/manageBookings' className='flex space-x-2'><FaOpencart size={20} />My bookings
+            </NavLink></li>
            <li><NavLink to='/contact' className='flex space-x-2'>CONTACT us</NavLink></li>
            <li><NavLink to='/dashboard/paymentHistory' className='flex space-x-2'>Payment History</NavLink></li>
            <li><Button

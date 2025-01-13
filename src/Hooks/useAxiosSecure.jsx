@@ -4,7 +4,7 @@ import axios from 'axios';
 import { AuthContext } from '../provider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://bistro-boss-restaurant-server-side-roan.vercel.app',
   
   });
 
@@ -33,8 +33,8 @@ axiosSecure.interceptors.response.use(function (response) {
   // Do something with response error
   console.log(error?.response?.status)
   if (error.response?.status ===401 || error.response?.status === 403) {
-     signOutUser()
-    navigate('/login')
+    //  signOutUser()
+    // navigate('/login')
   }
   return Promise.reject(error);
 });

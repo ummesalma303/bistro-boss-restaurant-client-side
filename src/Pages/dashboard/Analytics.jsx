@@ -25,7 +25,7 @@ const Analytics = () => {
             return res.data
         }
     })
-    console.log(chartData)
+    // console.log(chartData)
 
     // custom shape for the bar chart
     const getPath = (x, y, width, height) => {

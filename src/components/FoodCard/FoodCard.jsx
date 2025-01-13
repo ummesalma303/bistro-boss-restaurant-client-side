@@ -29,7 +29,7 @@ const FoodCard = ({ menu }) => {
       price,
     };
     if (user && user?.email) {
-      axiosSecure.post("http://localhost:5000/cart", cartItem)
+      axiosSecure.post("https://bistro-boss-restaurant-server-side-roan.vercel.app/cart", cartItem)
         .then((res) => {
           if (res.data.insertedId) {
             Swal.fire({

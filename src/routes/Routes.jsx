@@ -95,7 +95,7 @@ const router = createBrowserRouter([
         },
         {
           path:'updateItem/:id',
-          loader: ({params}) => fetch(`https://bistro-boss-restaurant-server-side-roan.vercel.app/singleMenu/${params.id}`),
+          loader: ({params}) => fetch(`http://localhost:5000/singleMenu/${params.id}`),
           element:<AdminRoutes><UpdateItem></UpdateItem></AdminRoutes>,
         }
       ]

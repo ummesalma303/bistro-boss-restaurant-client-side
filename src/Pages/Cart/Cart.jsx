@@ -44,7 +44,7 @@ const Cart = () => {
         .catch(err=>console.log(err))
     }
     return (
-        <div className="card w-11/12 mx-auto my-4">
+        <div className="card w-11/12 mx-auto mt-28 h-[70vh] ">
             <div className=' flex justify-between items-center'>
             <h2>Total orders: {cart.length}</h2>
             <h2>total price: ${totalPrice}</h2>

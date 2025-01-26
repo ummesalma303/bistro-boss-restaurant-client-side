@@ -13,13 +13,13 @@ const SslPayment = () => {
     
       
     // }, [cart])
-    console.log(user)
+    // console.log(user)
     const handleCreatePayment = async () =>{
         const payment ={
             email: user?.email,
             name: user?.displayName,
             date: new Date(),
-            // transactionId: paymentIntent.id,
+            transactionId: '',
             menuId: cart.map(item => item.menuId),
             cartIds: cart.map(item => item._id),
             price:totalPrice,
